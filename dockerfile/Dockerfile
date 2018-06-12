@@ -9,4 +9,4 @@ RUN sed -i "s|ping:x:999:|ping:x:101:|g" /etc/group && \
 
 USER jenkins
 
-ENTRYPOINT [/bin/init -- /usr/local/bin/jenkins.sh]
+ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/jenkins.sh"]
